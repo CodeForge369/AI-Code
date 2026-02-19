@@ -4,9 +4,10 @@ import pandas as pd
 plt.style.use('ggplot')
 
 #Importing The DataSet
-data=pd.read_csv("salary_data.csv")
-X=data.iloc[:,:-1].values #getting value of data of all rows and all column except last column
-y=data.iloc[:,1].values #getting the value of data of all rows and only last column
+data=pd.read_csv("Salary Data - Copy.csv")
+data=data.dropna()#Dropping The Null Values
+X=data.iloc[:,4:5].values #getting value of data of all rows and all column except last column
+y=data.iloc[:,5].values #getting the value of data of all rows and only last column
 #splitting the DataSet
 
 from sklearn.model_selection import train_test_split
@@ -42,7 +43,7 @@ print("="*30)
 
 while True:
     print("\n")
-    user_input=float ((input("Enter Any Year of Experience to Predict Your Salary:")))
+    user_input=float((input("Enter Any Year of Experience to Predict Your Salary:")))
     if user_input==exit:
         print("Existing The Program... , Good Bye Bro!")
         break
