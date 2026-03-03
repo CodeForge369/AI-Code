@@ -24,7 +24,7 @@ print(f"Number of Rows After Dropping Null Values:{drop.shape[0]}")
 print(f"Number of Columns After Dropping Null Values:{drop.shape[1]}")
 print("\n")
 
- #Finding The Nul Values
+ #Finding The Null Values
 null=df.isnull().sum()
 print(f"Number of Null Values:\n{null}")
 df=df.dropna()
@@ -91,6 +91,7 @@ plt.show()
 from sklearn.model_selection import train_test_split
 df_train,df_test=train_test_split(auto5,train_size=0.85,test_size=0.15,random_state=42)
 
+
 #Starting The Linear Regression Model
 X_train=df_train[["Age","Years of Experience","Master's","PhD"]]
 y_train=df_train['Salary'].astype('int')
@@ -156,6 +157,7 @@ x_test=test_data.drop(['Salary'],axis=1)
 print(f"Score of Linear Regression Model is:{model.score(x_test,y_test)*100:.2f}")
 print(f'Score of Logistic Regression Model is:{lg_model.score(x_test,y_test)*100:.2f}')
 print(f"Score of Polynomial Regression Model is:{poly_reg.score(poly.fit_transform(x_test),y_test)*100:.2f}")
+print("\n")
 
 #Importing The Pickle
 import pickle as pk
@@ -170,7 +172,7 @@ phd=int(input('Enter 1 If You Have Phd Degree Otherwise Enter 0:'))
 df1=pd.DataFrame({"Age":[age],"Years of Experience":[years],"Master's":[master],'PhD':[phd]})
 print(f'Data For Prediction:\n{df1}')
 
-#Predicting The Salary Using Th Linear Regression Model
+#Predicting The Salary Using The Linear Regression Model
 predict_salary=model.predict(df1)
 print(f'Predicted Salary is:{predict_salary[0]:.2f}')
 
